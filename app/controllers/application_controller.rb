@@ -18,12 +18,12 @@ class ApplicationController < Sinatra::Base
 
   post "/signup" do
     #your code here
-    # binding.pry
     if params[:username] != "" && params[:password] != ""
       user = User.new(params[:username], params[:password])
       user.save
       redirect '/login'
     else
+      binding.pry
       redirect '/failure'
     end
   end
