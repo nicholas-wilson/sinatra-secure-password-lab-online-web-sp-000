@@ -22,9 +22,8 @@ class ApplicationController < Sinatra::Base
       user = User.create(params[:username], params[:password])
       session[:user_id] = user.id
       redirect '/login'
-    else
-      redirect '/failure'
     end
+      redirect '/failure'
   end
 
   get '/account' do
