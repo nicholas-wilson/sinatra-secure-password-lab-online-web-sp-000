@@ -41,6 +41,7 @@ class ApplicationController < Sinatra::Base
     ##your code here
     if params[:username] != "" && params[:password] != ""
       user = User.find_by(username: params[:username])
+      binding.pry
       if !!user && validate(params[:password])
         session[:user_id] = user.id
         redirect '/account'
