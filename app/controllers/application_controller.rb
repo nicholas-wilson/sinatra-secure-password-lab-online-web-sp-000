@@ -20,7 +20,6 @@ class ApplicationController < Sinatra::Base
     #your code here
     if !!params[:username] && !!params[:password]
       user = User.create(params[:username], params[:password])
-      session[:user_id] = user.id
       redirect '/login'
     end
     redirect '/failure'
